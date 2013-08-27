@@ -28,7 +28,7 @@ CREATE TABLE IF NOT EXISTS `comments` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 CREATE TABLE IF NOT EXISTS `posts` (
-  `ID` mediumint(8) unsigned NOT NULL,
+  `ID` int unsigned NOT NULL,
   `POSTTYPEID` enum('1','2','3','4','5','6','7','8') COLLATE utf8_unicode_ci NOT NULL,
   `PARENTID` mediumint(8) unsigned DEFAULT NULL,
   `ACCEPTEDANSWERID` mediumint(8) unsigned DEFAULT NULL,
@@ -56,7 +56,7 @@ CREATE TABLE IF NOT EXISTS `posts` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 CREATE TABLE IF NOT EXISTS `posthistory` (
-  `ID` mediumint(8) unsigned NOT NULL,
+  `ID` int unsigned NOT NULL,
   `POSTHISTORYTYPEID` tinyint unsigned NOT NULL,
   `POSTID` mediumint(8) unsigned NOT NULL,
   `REVISIONGUID` char(36) COLLATE utf8_unicode_ci NOT NULL,
