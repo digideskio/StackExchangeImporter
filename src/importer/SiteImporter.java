@@ -13,13 +13,13 @@ import utils.MySqlConnectionUtils;
 
 public class SiteImporter {
 	public static void main(String[] args) throws SQLException {
-		String host = "localhost";
-		String username = "root";
-		String password = "root";
-		String db = "serverfault.se";
+		String host = "host";
+		String username = "username";
+		String password = "password";
+		String db = "db";
 		Connection conn = MySqlConnectionUtils.getConnection(host, username, password, db);
 		
-		String path = "/home/philips/stack_exchange_dump/SEDump_jun13/Content/serverfault.se/";
+		String path = "/path/to/stack.exchange.dump";
 		
 		try (DirectoryStream<Path> dirStream = Files.newDirectoryStream(FileSystems.getDefault().getPath(path))) {
 			for (Path p: dirStream) {
