@@ -91,7 +91,7 @@ public class BadgeImporter {
 			PreparedStatement pstmt) throws SQLException {
 		Badge bufBadge = null;
 		while ((bufBadge = badges.poll()) != null) {
-			System.out.println(bufBadge.toString());
+			//System.out.println(bufBadge.toString());
 			pstmt.setInt(1, bufBadge.id);
 			pstmt.setInt(2, bufBadge.userId);
 			if (bufBadge.name == null) {

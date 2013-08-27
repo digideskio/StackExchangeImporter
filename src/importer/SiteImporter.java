@@ -13,13 +13,13 @@ import utils.MySqlConnectionUtils;
 
 public class SiteImporter {
 	public static void main(String[] args) throws SQLException {
-		String host = "host";
-		String username = "username";
-		String password = "password";
-		String db = "stackexchangedb";
+		String host = "localhost";
+		String username = "root";
+		String password = "root";
+		String db = "serverfault.se";
 		Connection conn = MySqlConnectionUtils.getConnection(host, username, password, db);
 		
-		String path = "path/to/stack_exchange_dump";
+		String path = "/home/philips/stack_exchange_dump/SEDump_jun13/Content/serverfault.se/";
 		
 		try (DirectoryStream<Path> dirStream = Files.newDirectoryStream(FileSystems.getDefault().getPath(path))) {
 			for (Path p: dirStream) {
@@ -38,7 +38,8 @@ public class SiteImporter {
 					PostImporter.importPosts(p.toString(), conn);
 					break;
 				case "PostHistory.xml":
-					System.out.println("Importing post histories. Not implemented yet!");
+					System.out.println("Importing post histories. Please wait...");
+					PostHistoryImporter.importPostHistories(p.toString(), conn);
 					break;
 				case "Users.xml":
 					System.out.println("Importing users. Please wait...");

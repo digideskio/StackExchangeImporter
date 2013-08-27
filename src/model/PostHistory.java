@@ -3,19 +3,18 @@ package model;
 import java.sql.Timestamp;
 
 public class PostHistory {
-	final int id;
-	final int postHistoryTypeId;
-	final int postId;
-	final int revisionGUID;	
-	final Timestamp creationDate;
-	final int userId;
-	final String userDisplayName;
-	final String comment;
-	final String text;
+	public final int id;
+	public final int postHistoryTypeId;
+	public final int postId;
+	public final String revisionGUID;	
+	public final Timestamp creationDate;
+	public final Integer userId;
+	public final String userDisplayName;
+	public final String comment;
+	public final String text;
 	public PostHistory(int id, int postHistoryTypeId, int postId,
-			int revisionGUID, Timestamp creationDate, int userId,
+			String revisionGUID, Timestamp creationDate, Integer userId,
 			String userDisplayName, String comment, String text) {
-		super();
 		this.id = id;
 		this.postHistoryTypeId = postHistoryTypeId;
 		this.postId = postId;
@@ -25,6 +24,14 @@ public class PostHistory {
 		this.userDisplayName = userDisplayName;
 		this.comment = comment;
 		this.text = text;
+	}
+	@Override
+	public String toString() {
+		return "PostHistory [id=" + id + ", postHistoryTypeId="
+				+ postHistoryTypeId + ", postId=" + postId + ", revisionGUID="
+				+ revisionGUID + ", creationDate=" + creationDate + ", userId="
+				+ userId + ", userDisplayName=" + userDisplayName
+				+ ", comment=" + comment + ", text=" + text + "]";
 	}
 	
 }

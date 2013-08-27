@@ -188,7 +188,7 @@ public class PostImporter {
 			PreparedStatement pstmt) throws SQLException {
 		Post bufPost = null;
 		while ((bufPost = posts.poll()) != null) {
-			System.out.println(bufPost.toString());		
+			//System.out.println(bufPost.toString());		
 			pstmt.setInt(1, bufPost.id);
 			pstmt.setInt(2, bufPost.postTypeId);
 			if (bufPost.parentId == null) {
@@ -270,8 +270,8 @@ public class PostImporter {
 			} else {
 				pstmt.setInt(21, bufPost.favoriteCount);
 			}
-			pstmt.executeUpdate();
+			pstmt.addBatch();
 		}
-//		pstmt.executeBatch();
+		pstmt.executeBatch();
 	}
 }

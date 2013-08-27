@@ -45,7 +45,7 @@ CREATE TABLE IF NOT EXISTS `posts` (
   `COMMUNITYOWNEDDATE` datetime NULL,
   `CLOSEDDATE` datetime NULL,
   `TITLE` tinytext COLLATE utf8_unicode_ci NULL,
-  `TAGS` varchar(115) COLLATE utf8_unicode_ci NULL,
+  `TAGS` varchar(500) COLLATE utf8_unicode_ci NULL,
   `ANSWERCOUNT` smallint(5) unsigned NULL,
   `COMMENTCOUNT` tinyint(10) unsigned NULL,
   `FAVORITECOUNT` smallint(10) unsigned NULL,
@@ -53,6 +53,20 @@ CREATE TABLE IF NOT EXISTS `posts` (
   KEY `PARENTID` (`PARENTID`),
   KEY `OWNERUSERID` (`OWNERUSERID`),
   KEY `SCORE` (`SCORE`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+CREATE TABLE IF NOT EXISTS `posthistory` (
+  `ID` mediumint(8) unsigned NOT NULL,
+  `POSTHISTORYTYPEID` tinyint unsigned NOT NULL,
+  `POSTID` mediumint(8) unsigned NOT NULL,
+  `REVISIONGUID` char(36) COLLATE utf8_unicode_ci NOT NULL,
+  `CREATIONDATE` datetime NOT NULL,
+  `USERID` mediumint(9) NULL,
+  `USERDISPLAYNAME` tinytext COLLATE utf8_unicode_ci NULL,
+  `COMMENT` varchar(400) COLLATE utf8_unicode_ci NULL,
+  `TEXT` text COLLATE utf8_unicode_ci NULL,
+  PRIMARY KEY (`ID`),
+  KEY `USERID` (`USERID`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 CREATE TABLE IF NOT EXISTS `users` (
