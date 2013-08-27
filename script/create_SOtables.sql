@@ -58,7 +58,7 @@ CREATE TABLE IF NOT EXISTS `posts` (
 CREATE TABLE IF NOT EXISTS `posthistory` (
   `ID` int unsigned NOT NULL,
   `POSTHISTORYTYPEID` tinyint unsigned NOT NULL,
-  `POSTID` mediumint(8) unsigned NOT NULL,
+  `POSTID` int unsigned NOT NULL,
   `REVISIONGUID` char(36) COLLATE utf8_unicode_ci NOT NULL,
   `CREATIONDATE` datetime NOT NULL,
   `USERID` mediumint(9) NULL,
