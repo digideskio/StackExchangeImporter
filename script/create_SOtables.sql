@@ -30,8 +30,8 @@ CREATE TABLE IF NOT EXISTS `comments` (
 CREATE TABLE IF NOT EXISTS `posts` (
   `ID` int unsigned NOT NULL,
   `POSTTYPEID` enum('1','2','3','4','5','6','7','8') COLLATE utf8_unicode_ci NOT NULL,
-  `PARENTID` mediumint(8) unsigned DEFAULT NULL,
-  `ACCEPTEDANSWERID` mediumint(8) unsigned DEFAULT NULL,
+  `PARENTID` int unsigned DEFAULT NULL,
+  `ACCEPTEDANSWERID` int unsigned DEFAULT NULL,
   `CREATIONDATE` datetime NOT NULL,
   `SCORE` smallint(5) NOT NULL,
   `VIEWCOUNT` mediumint(8) unsigned NULL,
@@ -87,7 +87,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 CREATE TABLE IF NOT EXISTS `votes` (
-  `ID` mediumint(8) unsigned NOT NULL,
+  `ID` int unsigned NOT NULL,
   `POSTID` mediumint(8) unsigned NOT NULL,
   `VOTETYPEID` enum('1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16') COLLATE utf8_unicode_ci NOT NULL,
   `CREATIONDATE` datetime NOT NULL,
