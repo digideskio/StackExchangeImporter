@@ -16,8 +16,8 @@ CREATE TABLE IF NOT EXISTS `badges` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 CREATE TABLE IF NOT EXISTS `comments` (
-  `ID` mediumint(8) unsigned NOT NULL,
-  `POSTID` mediumint(8) unsigned NOT NULL,
+  `ID` int unsigned NOT NULL,
+  `POSTID` int unsigned NOT NULL,
   `SCORE` smallint(5) unsigned NULL,
   `TEXT` text COLLATE utf8_unicode_ci NOT NULL,
   `CREATIONDATE` datetime NOT NULL,
@@ -74,7 +74,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `REPUTATION` mediumint(8) unsigned NOT NULL,
   `CREATIONDATE` datetime NOT NULL,
   `DISPLAYNAME` tinytext COLLATE utf8_unicode_ci NOT NULL,
-  `EMAILHASH` char(32) COLLATE utf8_unicode_ci NOT NULL,
+  `EMAILHASH` char(32) COLLATE utf8_unicode_ci NULL,
   `LASTACCESSDATE` datetime NOT NULL,
   `WEBSITEURL` varchar(255) COLLATE utf8_unicode_ci NULL,
   `LOCATION` varchar(255) COLLATE utf8_unicode_ci NULL,
