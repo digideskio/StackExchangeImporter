@@ -44,7 +44,7 @@ CREATE TABLE IF NOT EXISTS `posts` (
   `LASTACTIVITYDATE` datetime NOT NULL,
   `COMMUNITYOWNEDDATE` datetime NULL,
   `CLOSEDDATE` datetime NULL,
-  `TITLE` tinytext COLLATE utf8_unicode_ci NULL,
+  `TITLE` text COLLATE utf8_unicode_ci NULL,
   `TAGS` varchar(500) COLLATE utf8_unicode_ci NULL,
   `ANSWERCOUNT` smallint(5) unsigned NULL,
   `COMMENTCOUNT` tinyint(10) unsigned NULL,
